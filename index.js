@@ -26,18 +26,24 @@ app.get('/country', (req, res) => {
             res.send(error)
         })
 })
+app.get('/addCountry', (req, res) => {
+    res.render("addCountry")
+})
 app.post('/addCountry',  (req, res) => {
-        var errors = validationResult(req) // check for errors
-        if (!errors.isEmpty()) { // if errors exist
-            //res.send("Errors in page")
-            res.render("addCountry", {errors:errors.errors, code:req.body.co_code, name:req.body.co_name, details:req.body.co_details})
-        }
-        else { // of no errors
-            console.log(req.body)
-            employeesFile.employees.push({ code:req.body.co_code, name:req.body.co_name, details:req.body.co_details }) // push data to employees array
-            //res.send("Add employee post recieved.")
-            res.redirect('/country') // redirects 
-        }
+        mySQLDAO.addCountry()
+        .then((result) => {
+            //res.send("OK")
+            res.redirect('/country')
+        })
+        .catch((error) => {
+            //res.send("NOK")
+            if(error.message.includes("11000")) {
+                res.send("Error")
+            }
+            else {
+                res.send(error.message)
+            }
+        })
     })
 
 
@@ -52,6 +58,8 @@ app.get('/city', (req, res) => {
             res.send(error)
         })
 })
+
+
 
 // Head Of State
 app.get('/hos', (req, res) => {
@@ -79,7 +87,7 @@ app.post('/addHos', (req, res) => {
     .catch((error) => {
         //res.send("NOK")
         if(error.message.includes("11000")) {
-            res.send("Error: Employee with ID:" + req.body._id + " already exists")
+            res.send("Error")
         }
         else {
             res.send(error.message)
@@ -87,6 +95,9 @@ app.post('/addHos', (req, res) => {
     })
 })
 
+app.get('/editCountry', (req, res) => {
+    res.render("editCountry")
+})
 
 app.listen(3007, () => {
     console.log("Listening on port 3007")
