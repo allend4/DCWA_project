@@ -1,0 +1,13 @@
+<body>
+    <h1>Add Country</h1>
+
+    <form action="/addCountry" method="POST">
+        <label>Country Code:</label>
+        <input type="text" name="code" value="<%= co_code %>"><br>
+        <label>Country Name:</label>
+        <input type="text" name="name" value="<%= co_name %>"><br>
+        <label>Country Details:</label>
+        <input type="textarea" name="details" value="<%= co_details %>"><br>
+        <input type="submit" value="Add">
+    </form>
+</body>

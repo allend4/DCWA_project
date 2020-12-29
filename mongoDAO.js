@@ -36,7 +36,7 @@ var getHeadsOfState = function() {
 
 var addHeadsOfState = function(_id, headOfState) {
     return new Promise((resolve, reject) => {
-        headOfState.insertOne({"_id":_id, "headOfState":headOfState})
+        headsOfState.insertOne({"_id":_id, "headOfState":headOfState})
         .then((result) => {
             resolve(result)
         })
