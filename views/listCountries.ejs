@@ -16,11 +16,12 @@
         <td><%= country.co_code %></td>
         <td><%= country.co_name %></td>
         <td><%= country.co_details %></td>
-        <td><a href="/editCountry">Update</a></td>
-        <td>Delete</td>
+        <td><a href="/editCountry/<%= country.co_code %>">Update</a></td>
+        <td><a href="/country/<%= country.co_code %>">Delete</a></td>
     </tr>
     <% }) %>
 </table>
 
 <br>
 <a href="/">Home</a>
+
