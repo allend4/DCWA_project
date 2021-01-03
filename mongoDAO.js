@@ -18,7 +18,8 @@ MongoClient.connect(url, {useNewUrlParser: true, useUnifiedTopology: true})
         headsOfState = headsOfStateDB.collection(collName)
     })
     .catch((error) => {
-        console.log(error)
+        res.send("<h3>ERROR MESSAGE: " + error + "/h3>")
+        console.log(error.message)
     })
 
 var getHeadsOfState = function() {
@@ -46,4 +47,4 @@ var addHeadsOfState = function(_id, headOfState) {
     })
 }
 
-module.exports = { getHeadsOfState, addHeadsOfState }
+module.exports = { getHeadsOfState, addHeadsOfState}

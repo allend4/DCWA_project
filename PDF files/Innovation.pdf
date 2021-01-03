@@ -1,0 +1,18 @@
+Log of issues
+
+all data reads from MySql and MongoDB - all can be read in through geth methods.
+
+MySql
+- edit and view details didnt go to plan.
+i can call the data for each indiviual object in the table, although was unable to populate the form with the information.
+- add.
+the add functions arent completed. they do work to a point, although the data they pull are Null points.
+
+MongoDB
+- add.
+add function works. it adds a new head of state.
+
+- Review
+Havent done alot of work with expressjs and accessing Mysql and MongoDB.
+Found very difficult to put it all into play.
+Some examples were given through lectures but found it very difficult to work out Mysql add, edit methods as had no previous work to guide me.
